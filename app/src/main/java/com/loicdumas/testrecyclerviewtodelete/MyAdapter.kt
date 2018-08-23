@@ -24,11 +24,18 @@ class MyAdapter(var data: List<Person>) : RecyclerView.Adapter<MyAdapter.MyViewH
         }
     }
 
+    companion object {
+        private const val JOHN = 0
+        private const val OTHER = 1
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         Log.v("LAMADRG", "CreateViewHolder in onCreateViewHolder - viewtype $viewType")
 
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.my_cell_view, parent, false)
+        val layoutId = if(viewType == JOHN) R.layout.my_cell_view_john else R.layout.my_cell_view
+
+        val view = LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
         return MyViewHolder(view)
     }
 
@@ -37,10 +44,15 @@ class MyAdapter(var data: List<Person>) : RecyclerView.Adapter<MyAdapter.MyViewH
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, positon: Int) {
-        Log.v("LAMADRG", "CreateViewHolder in onBindViewHolder pour ${data[positon].name} n° $positon")
+        Log.v("LAMADRG", "CreateViewHolder in onBindViewHolder pour ${data[positon].name} n° $positon - for holder $holder")
 
         holder.name.text = "${data[positon].name} n° $positon"
         holder.profession.text = data[positon].profession
 
+    }
+
+
+    override fun getItemViewType(position: Int): Int {
+        return if (data[position].name.equals("John")) JOHN else OTHER
     }
 }

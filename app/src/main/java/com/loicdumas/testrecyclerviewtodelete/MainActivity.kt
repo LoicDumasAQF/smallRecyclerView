@@ -4,6 +4,10 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.DefaultItemAnimator
+
+
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,47 +26,60 @@ class MainActivity : AppCompatActivity() {
                 Person("Jake", "Dev"),
                 Person("Jake", "racist"),
                 Person("Jake", "Downloaderr"),
-                Person("Jake", "pirate"),
-                Person("Jake", "Policierr"),
-                Person("Jake", "Dev"),
-                Person("Jake", "racist"),
+                Person("Jake", "Downloaderr"),
+                Person("Jake", "Downloaderr"),
+                Person("Jake", "Downloaderr"),
+                Person("Jake", "Downloaderr"),
+                Person("Jake", "Downloaderr"),
+                Person("Jake", "Downloaderr"),
                 Person("Jake", "Downloaderr"),
                 Person("Jake", "pirate"),
-                Person("Jake", "Policierr"),
-                Person("Jake", "Dev"),
+                Person("John", "Policierr"),
+                Person("John", "Dev"),
                 Person("Jake", "racist"),
-                Person("Jake", "racist"),
-                Person("Jake", "Downloaderr"),
-                Person("Jake", "pirate"),
-                Person("Jake", "Policierr"),
-                Person("Jake", "Dev"),
-                Person("Jake", "racist"),
-                Person("Jake", "Downloaderr"),
-                Person("Jake", "pirate"),
-                Person("Jake", "Policierr"),
+                Person("John", "Downloaderr"),
+                Person("John", "pirate"),
+                Person("John", "Policierr"),
                 Person("Jake", "Dev"),
                 Person("Jake", "racist"),
                 Person("Jake", "racist"),
-                Person("Jake", "Downloaderr"),
+                Person("John", "Downloaderr"),
                 Person("Jake", "pirate"),
+                Person("Jake", "Policierr"),
+                Person("John", "Dev"),
+                Person("Jake", "racist"),
+                Person("John", "Downloaderr"),
+                Person("Jake", "pirate"),
+                Person("John", "Policierr"),
+                Person("Jake", "Dev"),
+                Person("John", "racist"),
+                Person("John", "racist"),
+                Person("Jake", "Downloaderr"),
+                Person("John", "pirate"),
                 Person("Jake", "Policierr"),
                 Person("Jake", "Dev"),
-                Person("Jake", "racist"),
+                Person("John", "racist"),
                 Person("Jake", "Downloaderr"),
-                Person("Jake", "pirate"),
+                Person("John", "pirate"),
                 Person("Jake", "Policierr"),
                 Person("Jake", "Dev"),
-                Person("Jake", "racist"),
+                Person("John", "racist"),
                 Person("Jake", "Downloaderr"),
                 Person("Jake", "pirate"),
                 Person("Jake", "Policierr"),
-                Person("Jake", "Coquinne")
+                Person("John", "Coquinne")
         ))
 
 
         recyclerView.setHasFixedSize(true)
 
-        recyclerView.setLayoutManager(LinearLayoutManager(applicationContext))
+        recyclerView.setLayoutManager(LinearLayoutManager(applicationContext, LinearLayoutManager.VERTICAL, false))
+
+        recyclerView.setItemAnimator(DefaultItemAnimator())
+        recyclerView.addItemDecoration(DividerItemDecoration(this, LinearLayoutManager.VERTICAL))
+        recyclerView.setAdapter(adapter)
+
+
         recyclerView.setAdapter(adapter)
 
 
