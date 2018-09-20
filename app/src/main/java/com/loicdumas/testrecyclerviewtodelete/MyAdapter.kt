@@ -33,7 +33,7 @@ class MyAdapter(var data: List<Person>) : RecyclerView.Adapter<MyAdapter.MyViewH
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         Log.v("LAMADRG", "CreateViewHolder in onCreateViewHolder - viewtype $viewType")
 
-        val layoutId = if(viewType == JOHN) R.layout.my_cell_view_john else R.layout.my_cell_view
+        val layoutId = if (viewType == JOHN) R.layout.my_cell_view_john else R.layout.my_cell_view
 
         val view = LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
         return MyViewHolder(view)
